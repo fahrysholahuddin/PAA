@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int jumlahBuah,totalJumlahKotor;
+int jumlahBuah,totalJumlahKotor,gradeA,gradeB;
 float totalBeratKotor;
 
 struct buah{
@@ -25,6 +25,15 @@ int main(){
 		cout << "Kondisi buah " <<dataBuah[0].nama << " ke-" << i+1 << " (0-5) = ";
 		cin >> dataBuah[i].kondisi;
 	}
+	
+	for (int i = 0; i < jumlahBuah; i++){
+		if (dataBuah[i].kondisi < 1){
+			gradeA += 1;
+		}else if (dataBuah[i].kondisi >= 1 && dataBuah[i].kondisi <= 2){
+			gradeB += 1;
+		}
+	}
+	
 	for (int i = 0; i < jumlahBuah; i++){
 		totalJumlahKotor += 1;
 		totalBeratKotor = totalBeratKotor + dataBuah[i].berat;
@@ -32,4 +41,6 @@ int main(){
 	cout << endl << "=========================";
 	cout << endl << "Bruto jumlah seluruh buah = "<< totalJumlahKotor;
 	cout << endl << "Bruto berat seluruh buah = " << totalBeratKotor;
+	cout << endl << "Jumlah Buah Grade A = " << gradeA;
+	cout << endl << "Jumlah Buah Grade B = " << gradeB;
 }
