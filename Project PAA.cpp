@@ -20,6 +20,14 @@ struct buahGradeA
 	int kondisi;
 } dataBuahGradeA[30];
 
+struct buahGradeB
+{
+	string nama;
+	int no;
+	float berat;
+	int kondisi;
+} dataBuahGradeB[30];
+
 int main()
 {
 	cout << "Program Sortir Buah" << endl;
@@ -34,13 +42,13 @@ int main()
 		cout << endl
 			 << "Berat buah " << dataBuah[0].nama << " per pack ke-" << dataBuah[i].no << " = ";
 		cin >> dataBuah[i].berat;
-		cout << "Kondisi buah " << dataBuah[0].nama << " per pack ke-" << dataBuah[i].no << " (0-5) = ";
+		cout << "Jumlah buah jelek " << dataBuah[0].nama << " per pack ke-" << dataBuah[i].no << " (0-1) = ";
 		cin >> dataBuah[i].kondisi;
 	}
 
 	for (int i = 0; i < jumlahBuah; i++)
 	{
-		if (dataBuah[i].kondisi < 1)
+		if (dataBuah[i].kondisi == 0)
 		{
 			gradeA += 1;
 			dataBuahGradeA[i].nama = dataBuah[i].nama;
@@ -48,9 +56,13 @@ int main()
 			dataBuahGradeA[i].kondisi = dataBuah[i].kondisi;
 			dataBuahGradeA[i].berat = dataBuah[i].berat;
 		}
-		else if (dataBuah[i].kondisi >= 1 && dataBuah[i].kondisi <= 2)
+		else if (dataBuah[i].kondisi > 0)
 		{
 			gradeB += 1;
+			dataBuahGradeB[i].nama = dataBuah[i].nama;
+			dataBuahGradeB[i].no = dataBuah[i].no;
+			dataBuahGradeB[i].kondisi = dataBuah[i].kondisi;
+			dataBuahGradeB[i].berat = dataBuah[i].berat;
 		}
 	}
 
@@ -76,15 +88,15 @@ int main()
 	}
 	cout << endl
 		 << "Jumlah buah keseluruhan = " << totalJumlahKotor << " pack";
-		 cout << endl
+	cout << endl
 		 << "Jumlah berat buah keseluruhan = " << totalJumlahKotor << " pack";
 	cout << endl
 		 << "=========================";
 	cout << endl
 		 << "Daftar buah layak jual : " << endl;
-	for (int i = 0; i <= gradeA; i++)
+	for (int i = 0; i < jumlahBuah; i++)
 	{
-		if (dataBuah[i].kondisi < 1)
+		if (dataBuah[i].kondisi == 0)
 		{
 			cout << "Nama buah : " << dataBuahGradeA[0].nama << " no = " << dataBuahGradeA[i].no << " kodisi : " << dataBuahGradeA[i].kondisi << " Berat : " << dataBuahGradeA[i].berat << endl;
 		}
@@ -92,8 +104,14 @@ int main()
 	cout << endl
 		 << "Jumlah Buah Grade A (Layak Jual) = " << gradeA;
 	cout << endl
-		 << "=========================";
-
+		 << "=========================\n";
+	for (int i = 0; i < jumlahBuah; i++)
+	{
+		if (dataBuah[i].kondisi > 0)
+		{
+			cout << "Nama buah : " << dataBuahGradeB[0].nama << " no = " << dataBuahGradeB[i].no << " kodisi : " << dataBuahGradeB[i].kondisi << " Berat : " << dataBuahGradeB[i].berat << endl;
+		}
+	}
 	cout << endl
 		 << "Jumlah Buah Grade B (Non Layak Jual) = " << gradeB;
 }
