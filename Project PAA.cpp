@@ -45,6 +45,7 @@ int main()
         cin >> dataBuah[i].kondisi;
     }
 
+<<<<<<< Updated upstream
     for (int i = 0; i < jumlahBuah; i++)
     {
         if (dataBuah[i].kondisi == 0)
@@ -71,6 +72,38 @@ int main()
         totalBeratGradeA = totalBeratGradeA + dataBuahGradeA[i].berat;
         totalBeratGradeB = totalBeratGradeB + dataBuahGradeB[i].berat;
     }
+=======
+	for (int i = 0; i < jumlahBuah; i++)
+	{
+	}
+	cout << endl
+		 << "=========================";
+	cout << endl
+		 << "Daftar buah keseluruhan " << endl;
+	for (int i = 0; i < jumlahBuah; i++)
+	{
+		cout << "Nama buah : " << dataBuah[0].nama << " no = " << dataBuah[i].no << " kodisi : " << dataBuah[i].kondisi << endl;
+	}
+	cout << endl
+		 << "Jumlah buah keseluruhan = " << totalJumlahKotor << " pack";
+		 cout << endl
+		 << "Jumlah berat buah keseluruhan = " << totalJumlahKotor << " pack";
+	cout << endl
+		 << "=========================";
+	cout << endl
+		 << "Daftar buah layak jual : " << endl;
+	for (int i = 0; i <= gradeA; i++)
+	{
+		if (dataBuah[i].kondisi < 1)
+		{
+			cout << "Nama buah : " << dataBuahGradeA[0].nama << " no.ID = " << dataBuahGradeA[i].no << " kodisi : " << dataBuahGradeA[i].kondisi << " Berat : " << dataBuahGradeA[i].berat << endl;
+		}
+	}
+	cout << endl
+		 << "Jumlah Buah Grade A (Layak Jual) = " << gradeA;
+	cout << endl
+		 << "=========================";
+>>>>>>> Stashed changes
 
     cout << endl << "=========================";
     cout << endl << "Daftar buah keseluruhan " << endl;
